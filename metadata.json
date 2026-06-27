@@ -1,0 +1,6 @@
+{
+  "name": "Semantic Doc Search",
+  "description": "AI-powered natural language semantic search for PDFs, spreadsheets, and document text.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
