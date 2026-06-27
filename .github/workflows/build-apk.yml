@@ -24,11 +24,12 @@ jobs:
 
     - name: Set up Gradle
       uses: gradle/actions/setup-gradle@v3
-      with:
-        gradle-version: '8.4' # Uses stable Gradle version compatible with Android build
 
     - name: Restore Keystore & Configuration
       run: |
+        # Make gradlew executable
+        chmod +x gradlew
+
         # Decode the debug keystore from base64 if it exists
         if [ -f debug.keystore.base64 ]; then
           echo "Decoding debug keystore..."
@@ -44,7 +45,7 @@ jobs:
         fi
 
     - name: Build Debug APK
-      run: gradle :app:assembleDebug --stacktrace
+      run: ./gradlew :app:assembleDebug --stacktrace
 
     - name: Upload Debug APK Artifact
       uses: actions/upload-artifact@v4
